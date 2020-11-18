@@ -89,8 +89,9 @@ function dibujarTablero() {
             if (!valores_tablero.includes("")) {
                 console.log("empate");
                 tablero.setAttribute("class", "nodisp");
-                document.getElementById("textocartel").innerHTML = "Empate. Recarga la pagina para jugar nuevamente";
-
+                document.getElementById("textocartel").innerHTML = "Empate.";
+                let timer;
+                timer = setTimeout(window.location.href = "../home.html", 10000);
             }
         }
     }

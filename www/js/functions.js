@@ -3,8 +3,8 @@ function store1() {
     let apodo = document.getElementById("txtApodo").value;
     let color = document.getElementById("color").value;
 
-    if (color === "#000000") {
-        alert("Elegí otro color que no sea negro");
+    if (color === "#000000" || color === "#FFFFFF") {
+        alert("Elegí otro color que no sea negro o blanco");
     } else {
         Storage.put("nombre", nombre);
         Storage.put("apodo", apodo);
@@ -21,8 +21,8 @@ function store2() {
 
     if (apodo2 === Storage.get("apodo")) {
         alert("Escribí otro apodo. No puede ser igual al del jugador anterior");
-    } else if (color2 === "#000000") {
-        alert("Elegí otro color que no sea negro");
+    } else if (color2 === "#000000" || color2 === "#FFFFFF") {
+        alert("Elegí otro color que no sea negro o blanco");
     } else {
         Storage.put("nombre2", nombre2);
         Storage.put("apodo2", apodo2);
