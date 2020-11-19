@@ -9,22 +9,25 @@
     <title>Aplicación</title>
 </head>
 
-<body>
+<body onload="cargarUsuarios()">
     <main>
-        <h3 class="subtitulo">Podes editar tu perfil</h3>
+        <h3 class="subtitulo">Podes editar los perfiles</h3>
         <div class="espacioycentrar2">
-            <input type="text" placeholder="Nombre"><br>
-            <input type="text" placeholder="Apodo"><br>
-            <input type="color"><br><br>
+            <input type="text" placeholder="Nombre" id="nombre"><br>
+            <input type="text" placeholder="Apodo" id="apodo"><br>
+            <input type="color" id="color"><br><br>
+            <h3 class="espacioycentrar2"><a href="#" onclick="javascript:store1_2()" class="boton">Guardar</a></h3>
 
-            <input type="text" placeholder="Nombre"><br>
-            <input type="text" placeholder="Apodo"><br>
-            <input type="color"><br>
+            <input type="text" placeholder="Nombre" id="nombre2"><br>
+            <input type="text" placeholder="Apodo" id="apodo2"><br>
+            <input type="color" id="color2"><br>
         </div>
-        <h3 class="espacioycentrar2"><a href="" class="boton">Guardar</a></h3>
+        <h3 class="espacioycentrar2"><a href="#" onclick="javascript:store2_2()" class="boton">Guardar</a></h3>
+        <h3 class="espacioycentrar2"><a href="home.html" class="boton">Volver a la home</a></h3>
     </main>
 
     <script src="js/index.js"></script>
+    <script src="js/functions.js"></script>
 </body>
 
 </html>

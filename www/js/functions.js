@@ -36,6 +36,43 @@ function clear() {
     Storage.kill();
 }
 
+function cargarUsuarios(){
+    document.getElementById("nombre").value = Storage.get("nombre");
+    document.getElementById("apodo").value = Storage.get("apodo");
+    document.getElementById("color").value = Storage.get("color");
+    document.getElementById("nombre2").value = Storage.get("nombre2");
+    document.getElementById("apodo2").value = Storage.get("apodo2");
+    document.getElementById("color2").value = Storage.get("color2"); 
+}
+
+function store1_2(){
+    let nombre= document.getElementById("nombre").value;
+    let apodo = document.getElementById("apodo").value;
+    let color = document.getElementById("color").value;
+    if (color === "#000000" || color === "#FFFFFF") {
+        alert("Elegí otro color que no sea negro o blanco");
+    } else {
+        Storage.put("nombre", nombre);
+        Storage.put("apodo", apodo);
+        Storage.put("color", color);
+    }
+}
+
+function store2_2(){
+    let nombre2 = document.getElementById("nombre2").value;
+    let apodo2 = document.getElementById("apodo2").value;
+    let color2 = document.getElementById("color2").value;
+    if (apodo2 === Storage.get("apodo")) {
+        alert("Escribí otro apodo. No puede ser igual al del jugador anterior");
+    } else if (color2 === "#000000" || color2 === "#FFFFFF") {
+        alert("Elegí otro color que no sea negro o blanco");
+    } else {
+        Storage.put("nombre2", nombre2);
+        Storage.put("apodo2", apodo2);
+        Storage.put("color2", color2);
+    }
+}
+
 function jugadoresypuntos() {
     document.getElementById("p1").innerHTML = Storage.get("apodo") + ": " + Storage.get("puntos1");
     document.getElementById("p2").innerHTML = Storage.get("apodo2") + ": " + Storage.get("puntos2");
