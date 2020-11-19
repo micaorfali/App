@@ -36,6 +36,11 @@ function clear() {
     Storage.kill();
 }
 
+function killStorage() {
+    Storage.kill();
+    window.location.href = "index.html";
+}
+
 function cargarUsuarios(){
     document.getElementById("nombre").value = Storage.get("nombre");
     document.getElementById("apodo").value = Storage.get("apodo");
