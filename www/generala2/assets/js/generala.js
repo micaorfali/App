@@ -9,7 +9,6 @@ let estadoDelJuego = {
     jugadas: 0
 };
 
-
 function tirarDado() {
     return Math.floor(Math.random() * 6) + 1;
 }

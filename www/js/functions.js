@@ -19,7 +19,6 @@ function store1() {
     }
 }
 
-
 function store2() {
     let nombre2 = document.getElementById("txtNombre2").value;
     document.getElementById("txtNombre2").required = true;
@@ -40,7 +39,6 @@ function store2() {
         window.location.href = "home.html";
     }
 }
-
 
 function clear() {
     Storage.kill();
@@ -93,8 +91,8 @@ function jugadoresypuntos() {
     document.getElementById("p2").innerHTML = Storage.get("apodo2") + ": " + Storage.get("puntos2");
     document.getElementById("p1").style.color = Storage.get("color");
     document.getElementById("p2").style.color = Storage.get("color2");
-    document.getElementById("p1").style.backgroundColor = "black";
-    document.getElementById("p2").style.backgroundColor = "black";
+    //document.getElementById("p1").style.backgroundColor = "black";
+    //document.getElementById("p2").style.backgroundColor = "black";
 }
 
 function checkLocalStorage() {

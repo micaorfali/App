@@ -18,7 +18,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 	text-decoration: none;
-	color: #666;
+	color:black;
   
 }
 /* HTML5 display-role reset for older browsers */
@@ -28,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	text-align: center;
 }
 ol, ul {
 	list-style: none;
@@ -46,20 +47,27 @@ table {
 }
 /* FINISH RESET*/
 
+@media (max-width: 1000px){
+	body {
+        background-image: url("../../../img/background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: black;
+    }
+
 #tablero{
-	max-width: 800px;
-	width: 60%;
-	min-width: 650px;
+	max-width: 500px;
+	min-width: 400px;
     margin: 0 auto;
 }
 
 .casillero{
     display: inline-block;
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     background-color: black;
 	border: solid red 5px;
-	font-size: 12em;
+	font-size: 7em;
 	vertical-align: text-top;
 	color: white;
 	text-align: center;
@@ -87,4 +95,12 @@ table {
 	border: 4px solid red;
 	border-radius: 15%;
 	text-align: center;
+}
+
+#turno{
+	text-align: center;
+    font-weight: bold;
+	font-size: 1.5em;
+	margin: 0.5em 0 0.5em 0;
+}
 }
