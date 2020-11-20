@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-      
-        <link rel="stylesheet" href="css/index.css">
-        <script src="js/storage.js"></script>
-        <title>Aplicación</title>
-    </head>
-    <body onload="checkLocalStorage()">
-        <main>
-            <h1>Te damos la bienvenida!</h1>
-            <h3 class="subtitulo">Creá tu perfil</h3>
-            <input type="text" placeholder="Nombre" id="txtNombre" required><br>
-            <input type="text" placeholder="Apodo" id="txtApodo" required><br>
-            <input type="color" id="color"><br>
-            <h3 class="espacioycentrar"><a onclick="javascript:store1()" class="boton">Crear</a></h3>
-        </main>
 
-        <script src="js/functions.js"></script>
-        <script src="js/index.js"></script>
-        
-    </body>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/storage.js"></script>
+    <title>Aplicación</title>
+</head>
+
+<body onload="checkLocalStorage()">
+    <main>
+        <h1>Te damos la bienvenida!</h1>
+        <h3 class="subtitulo">Creá tu perfil</h3>
+        <input type="text" placeholder="Nombre" id="txtNombre"><br>
+        <input type="text" placeholder="Apodo" id="txtApodo"><br>
+        <input type="color" id="color"><br>
+        <img id="foto" alt="">
+        <button onclick="takePicture()">Sacar foto</button>
+        <h3 class="espacioycentrar"><a onclick="javascript:store1()" class="boton">Crear</a></h3>
+    </main>
+
+    <script src="cordova.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
 </html>

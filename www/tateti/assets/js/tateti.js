@@ -54,8 +54,8 @@ function dibujarTablero() {
                             tablero.setAttribute("class", "nodisp");
                             document.getElementById("textocartel").innerHTML = "Ganó X.";
                             Storage.put("puntos2", (Storage.get("puntos2") + 200));
-                            let timer;
-                            timer = setTimeout(window.location.href = "../home.html", 10000);
+                            document.getElementById("mostrar").style.display = "block";
+                            
                             break;
                         }
                     }
@@ -79,8 +79,7 @@ function dibujarTablero() {
                             tablero.setAttribute("class", "nodisp");
                             document.getElementById("textocartel").innerHTML = "Ganó O.";
                             Storage.put("puntos1", (Storage.get("puntos1") + 200));
-                            let timer;
-                            timer = setTimeout(window.location.href = "../home.html", 10000);
+                            document.getElementById("mostrar").style.display = "block";
                             break;
                         }
                     }
@@ -90,8 +89,7 @@ function dibujarTablero() {
                 console.log("empate");
                 tablero.setAttribute("class", "nodisp");
                 document.getElementById("textocartel").innerHTML = "Empate.";
-                let timer;
-                timer = setTimeout(window.location.href = "../home.html", 10000);
+                document.getElementById("mostrar").style.display = "block";
             }
         }
     }

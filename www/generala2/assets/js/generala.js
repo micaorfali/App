@@ -52,7 +52,11 @@ function actualizarPantalla() {
         for (let i = 0; i < 5; i++) {
             contenedorDados.appendChild(dibujarDado(i, estadoDelJuego.dados[i], true));
         }
-        document.getElementById("turno").innerHTML = estadoDelJuego.jugador;
+        if(estadoDelJuego.jugador === 0){
+            document.getElementById("turno").innerHTML = Storage.get("apodo");
+        }else{
+            document.getElementById("turno").innerHTML = Storage.get("apodo2");
+        }
         document.getElementById("tiro").innerHTML = estadoDelJuego.contTiros;
         document.querySelectorAll("#puntajes td").forEach(celda => celda.classList.remove("jugando"));
         document.querySelectorAll("#puntajes td:nth-of-type(" + estadoDelJuego.jugador + ")").forEach(celda => celda.classList.add("jugando"));
@@ -198,7 +202,7 @@ function quienGano() {
 
     if (totalp1 < totalp2) {
         document.getElementById("mostrarganador").style.display = "inline-block";
-        document.getElementById("mostrarganador").innerHTML = "Ganó" + Storage.get("apodo2");
+        document.getElementById("mostrarganador").innerHTML = "Ganó: " + Storage.get("apodo2");
         Storage.put("puntos2", (Storage.get("puntos2") + 400));
         document.getElementById("botonTirarDados").style.display = "none";
         document.getElementById("aclaracion").style.display = "none";
@@ -208,7 +212,7 @@ function quienGano() {
         document.getElementById("tabla").style.display = "none";
     } else if (totalp2 < totalp1) {
         document.getElementById("mostrarganador").style.display = "inline-block";
-        document.getElementById("mostrarganador").innerHTML = "Ganó" + Storage.get("apodo");
+        document.getElementById("mostrarganador").innerHTML = "Ganó: " + Storage.get("apodo");
         Storage.put("puntos1", (Storage.get("puntos1") + 400));
         document.getElementById("botonTirarDados").style.display = "none";
         document.getElementById("aclaracion").style.display = "none";

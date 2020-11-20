@@ -22,9 +22,21 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
 }
 
+function takePicture() {
+    let cameraOps = {
+        quality: 25,
+        destinationType: Camera.DestinationType.DATA_URL
+    }
+    navigator.camera.getPicture(onSuccess, onFail, cameraOps);
+}
+
+function onSuccess(imgData) {
+    document.getElementById("foto").src = "data:image/jpeg;base64," + imgData;
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}

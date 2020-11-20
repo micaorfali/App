@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/index.css">
@@ -10,16 +11,28 @@
 
 <body onload="jugadoresypuntos()">
     <main>
-        <h1 class="">Home</h1>
-        <div class="centrarvertical">
-            <h3 class="espacioycentrar3"><a href="juegos.html" class="boton">Juegos</a></h3>
-            <h3 class="espacioycentrar3"> <a href="editarperfiles.html" class="boton">Editar perfiles</a></h3>
-            <h3 class="espacioycentrar3" onclick="killStorage()"><a href="#" >Kill Storage</a></h2>
-        </div>
+        <h1>Home</h1>
         <div id="jugadoresypuntos">
-            <h2 id="p1"></h2><h2 id="puntos1"></h2><br>
-            <h2 id="p2"></h2><h2 id="puntos2"></h2>
+            <h2 id="p1"></h2>
+            <h2 id="puntos1"></h2><br>
+            <h2 id="p2"></h2>
+            <h2 id="puntos2"></h2>
         </div>
+        <div class="centrarvertical">
+            <div id="juegos">
+                <div class="contenedorjuego">
+                    <img src="img/tateti.png" alt="ta te ti">
+                    <h3><a href="tateti/index.html" class="boton">Ta te ti</a></h3>
+                </div>
+                <div class="contenedorjuego">
+                    <img src="img/generala.jpg" alt="generala">
+                    <h3> <a href="generala2/index.html" class="boton">Generala</a></h3>
+                </div>
+            </div>
+            <h3 class="espacioycentrar2"> <a href="editarperfiles.html" class="boton">Editar perfiles</a></h3>
+            <h3 class="espacioycentrar2" onclick="killStorage()"><a href="#">Kill Storage</a></h2>
+        </div>
+       
     </main>
 
     <script src="js/functions.js"></script>
