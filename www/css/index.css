@@ -106,8 +106,7 @@ table {
     -webkit-animation:fade 3000ms infinite;
 }
 
-
-@media (max-width: 1000px){
+@media screen and (min-width: 501px){
     body {
         background-image: url("../img/background.jpg");
         background-repeat: no-repeat;
@@ -123,7 +122,7 @@ table {
     }
     
     .subtitulo{
-        margin-left: 1em;
+        margin: 1em;
     }
 
     .juego{
@@ -178,6 +177,10 @@ table {
         text-align: center;
     }
 
+    .espacioycentrar3{
+        margin: 2em 0 1em 0;
+    }
+
     .centrarvertical{
         width: 75%;
         margin: 0 auto;
@@ -198,6 +201,11 @@ table {
         display: inline-block;
         margin: 0 0 0.5em 0;
         background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    #jugadores{
+        display: inline-block;
+        width: 45%;
     }
 
 }
