@@ -204,9 +204,7 @@ function quienGano() {
         document.getElementById("mostrarganador").innerHTML = "Ganó: " + Storage.get("apodo2");
         Storage.put("puntos2", (Storage.get("puntos2") + 400));
         document.getElementById("botonTirarDados").style.display = "none";
-        document.getElementById("aclaracion").style.display = "none";
         document.getElementById("estadodeljuego").style.display = "none";
-        document.getElementById("aclaracion").style.display = "none";
         document.getElementById("contenedorDados").style.display = "none";
         document.getElementById("tabla").style.display = "none";
     } else if (totalp2 < totalp1) {
@@ -214,18 +212,14 @@ function quienGano() {
         document.getElementById("mostrarganador").innerHTML = "Ganó: " + Storage.get("apodo");
         Storage.put("puntos1", (Storage.get("puntos1") + 400));
         document.getElementById("botonTirarDados").style.display = "none";
-        document.getElementById("aclaracion").style.display = "none";
         document.getElementById("estadodeljuego").style.display = "none";
-        document.getElementById("aclaracion").style.display = "none";
         document.getElementById("contenedorDados").style.display = "none";
         document.getElementById("tabla").style.display = "none";
     } else {
         document.getElementById("mostrarganador").style.display = "inline-block";
         document.getElementById("mostrarganador").innerHTML = "Empate!";
         document.getElementById("botonTirarDados").style.display = "none";
-        document.getElementById("aclaracion").style.display = "none";
         document.getElementById("estadodeljuego").style.display = "none";
-        document.getElementById("aclaracion").style.display = "none";
         document.getElementById("contenedorDados").style.display = "none";
         document.getElementById("tabla").style.display = "none";
     }
