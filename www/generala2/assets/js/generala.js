@@ -51,7 +51,7 @@ function actualizarPantalla() {
         for (let i = 0; i < 5; i++) {
             contenedorDados.appendChild(dibujarDado(i, estadoDelJuego.dados[i], true));
         }
-        if(estadoDelJuego.jugador === 0){
+        if(estadoDelJuego.jugador === 1){
             document.getElementById("turno").innerHTML = Storage.get("apodo");
         }else{
             document.getElementById("turno").innerHTML = Storage.get("apodo2");
@@ -138,7 +138,7 @@ function anotarPuntos(juego) {
                         estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = puntosJuegoEspecial(50);
                     }
                 } else {
-                    if (document.querySelector("#puntajes tbody tr:nth-of-type(11) td:nth-of-type(" + estadoDelJuego.jugador + ")").classList.contains("anotado")) {
+                    if (document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").classList.contains("anotado")) {
                         estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = 0;
                     } else {
                         estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][10] = 0;
@@ -147,15 +147,15 @@ function anotarPuntos(juego) {
                 }
                 break;
             case 10:
-                if (esGenerala()) {
+                if (esGenerala() && document.querySelector("#puntajes tr:nth-of-type(10) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML > 0 && document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "") {
+                    estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = puntosJuegoEspecial(100);
+                    break;
+                } else if (document.querySelector("#puntajes tr:nth-of-type(10) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "X" && document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === ""){
                     estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = 0;
-                } else {
-                    if (estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego][9] > 0) {
-                        estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = puntosJuegoEspecial(100);
-                    } else {
-                        estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9] = puntosJuegoEspecial(50);
-                        generalaForzadaPorDoble = true;
-                    }
+                    break;
+                } else if (document.querySelector("#puntajes tr:nth-of-type(10) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "" && document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "") {  
+                    estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = 0;
+                    break;
                 }
                 break;
         }
@@ -164,11 +164,11 @@ function anotarPuntos(juego) {
             celda.innerHTML = estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] === 0 ? "X" : estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego];
             celda.classList.add("anotado");
         } else if (generalaForzadaPorDoble) {
-            let celdaG = document.querySelector("#puntajes tr:nth-of-type(10) td:nth-of-type(" + estadoDelJuego.jugador + ")");
+            let celdaG = document.querySelector("#puntajes tr:nth-of-type(10) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")");
             celdaG.innerHTML = estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9] === 0 ? "X" : estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9];
             celdaG.classList.add("anotado");
         } else if (dobleForzadaPorGenerala) {
-            let celdaDG = document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + estadoDelJuego.jugador + ")");
+            let celdaDG = document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + (estadoDelJuego.jugador +1) + ")");
             celdaDG.innerHTML = "X";
             celdaDG.classList.add("anotado");
         }
