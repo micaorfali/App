@@ -47,27 +47,23 @@ table {
 }
 /* FINISH RESET*/
 
-@media (max-width: 1000px){
-	body {
-        background-image: url("../../../img/background.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        color: black;
-    }
+body{
+	font-size: 16px;
+}
 
 #tablero{
-	max-width: 500px;
-	min-width: 400px;
+	max-width: 300px;
+	min-width: 200px;
     margin: 0 auto;
 }
 
 .casillero{
     display: inline-block;
-    width: 120px;
-    height: 120px;
+    width: 5.5rem;
+    height: 5.5rem;
     background-color: black;
-	border: solid red 5px;
-	font-size: 7em;
+	border: solid red 3px;
+	font-size: 5em;
 	vertical-align: text-top;
 	color: white;
 	text-align: center;
@@ -89,18 +85,10 @@ table {
 	color: black;
 }
 
-.boton{
-	padding: 1.3em 2em;
-	background-color: white;
-	border: 4px solid red;
-	border-radius: 15%;
-	text-align: center;
-}
 
 #turno{
 	text-align: center;
     font-weight: bold;
 	font-size: 1.5em;
 	margin: 0.5em 0 0.5em 0;
-}
 }
