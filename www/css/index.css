@@ -124,7 +124,7 @@ table {
     }
     
     .subtitulo{
-        margin: 1.5em;
+        margin: 0.5em 0 0.5em 1.5em;
     }
 
     .juego{
@@ -281,6 +281,25 @@ table {
         display: block;
     }
 
- 
+    .jugadores{
+        display: block;
+        width: 90%;
+    } 
 
+    .espacioycentrar3{
+        margin-left: 2em;
+    }
+
+    .inlineflex{
+        display: block;
+    }
+
+    .porc30{
+        margin-left: 2em;
+        margin: 0 auto;
+    }
+
+    .inputs{
+        width: 100%;
+    }
 }

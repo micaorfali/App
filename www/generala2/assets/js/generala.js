@@ -53,8 +53,10 @@ function actualizarPantalla() {
         }
         if (estadoDelJuego.jugador === 1) {
             document.getElementById("turno").innerHTML = Storage.get("apodo");
+            document.getElementById("turno").style.color = Storage.get("color");
         } else {
             document.getElementById("turno").innerHTML = Storage.get("apodo2");
+            document.getElementById("turno").style.color = Storage.get("color2");
         }
         document.getElementById("tiro").innerHTML = estadoDelJuego.contTiros;
         document.querySelectorAll("#puntajes td").forEach(celda => celda.classList.remove("jugando"));
@@ -63,6 +65,7 @@ function actualizarPantalla() {
         document.querySelectorAll("#puntajes th:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").forEach(celda => celda.classList.add("jugando"));
     }
 }
+
 /*
 function resaltarJuegosPosibles(resaltar) {
     if (!resaltar) {
