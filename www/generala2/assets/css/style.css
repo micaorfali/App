@@ -18,7 +18,6 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 	text-decoration: none;
-	color: black;
   
 }
 /* HTML5 display-role reset for older browsers */
@@ -46,35 +45,29 @@ table {
 }
 /* FINISH RESET*/
 
-@media (max-width: 1000px){
-body{
-	display: flex;
-	background-image: url("../../../img/background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: black;
-}
 
 main{
 	display: inline-block;
-	height: 70vh;
+	width: 45%;
 }
 
 #contenedorDados{
-	width: 60%;
+	background-color: #979797;
+	border-radius: 8px;
+	padding: 0.3em;
 	display: inline-block;
+	margin-left: 0.5em;
+	float:left;
+	text-align: center;
 }
 
 #contenedorDados div{
-	width: 75px;
-	height: 75px;
 	padding-left: 0.5em;
 	display: inline-block;
+	width: 100px;
+	
 }
 
-img{
-	width: 100%;
-}
 
 .seleccionado{
 	/*border: 4px solid red !important;*/
@@ -83,12 +76,12 @@ img{
 }
 
 #botonTirarDados{
-	border: 4px solid red;
-	background-color: white;
-	padding: 0.5em 1.3em;
 	margin: 1em;
 	display: inline-block;
-	border-radius: 15%;
+	padding: 0.5em 1.3em;
+    background-color: #EC1D1D;
+    border-radius: 8px;
+    font-weight: 500;
 }
 
 #aclaracion{
@@ -96,8 +89,7 @@ img{
 }
 
 #estadodeljuego{
-	margin: 0.5em;
-	font-size: 1.5em;
+	margin: 1em;
 }
 
 aside{
@@ -107,20 +99,24 @@ aside{
 }
 
 table{
-	margin: 1em 0 0 3em; 
-	border: 2px solid black;
+	background-color: rgba(255, 255, 255, 0.4);
+	margin: 1em 0 0 2em; 
+	border-style: hidden;
 	border-radius: 1em;
 	border-collapse: collapse;
-	background-color: white;
+	float: right;
 }
 th, td{
-	border: 1.5px solid black;
+	border: 1.5px solid#979797;
 }
+
 th{
 	padding: 0.5em 2em;
+	font-weight: 500;
 }
+
 td{
-	padding: 0.45em 1em;
+	padding: 0.2em 1em;
 }
 
 #puntaje{
@@ -152,5 +148,4 @@ td{
 	border: 4px solid red;
 	border-radius: 15%;
 	text-align: center;
-}
 }
