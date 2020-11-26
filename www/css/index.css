@@ -214,7 +214,7 @@ table {
         padding-left: 0.5em;
     }
 
-    #editarperfiles{
+    .botonfloatright{
         float: right;
         margin: 1em;
     }
@@ -257,11 +257,18 @@ table {
         background-color: rgba(255, 255, 255, 0.4);
     }
 
-    #jugadores{
+    .jugadores{
         display: inline-block;
         width: 45%;
     }
 
+#floatleft{
+float: left;
+}
+
+#floatright{
+float: right;
+}
 
 @media screen and (orientation: portrait){
 

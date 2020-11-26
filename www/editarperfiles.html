@@ -17,26 +17,27 @@
 
 <body onload="cargarUsuarios()">
     <main>
-        <h3 class="subtitulo">Podes editar los perfiles</h3>
+        <h1>Podes editar los perfiles</h1>
+        <h3 class="botonfloatright"><a href="home.html" class="boton2">Volver a la home</a></h3>
         <div class="espacioycentrar3">
-            <div id="jugadores">
+            <div class="jugadores" id="floatleft">
                 <input type="text" placeholder="Nombre" id="nombre"><br>
                 <input type="text" placeholder="Apodo" id="apodo"><br>
                 <input type="color" id="color"><br><br>
-                <img id="foto" src="" alt="">
-                <button onclick="takePicture()">Sacar foto</button>
+                <img id="foto" src="" alt=""><br>
+                <button onclick="takePicture()" class="boton">Sacar foto</button>
                 <h3 class="espacioycentrar2"><a href="#" onclick="javascript:store1_2()" class="boton">Guardar</a></h3>
             </div>
-            <div id="jugadores">
+            <div class="jugadores" id="floatright">
                 <input type="text" placeholder="Nombre" id="nombre2"><br>
                 <input type="text" placeholder="Apodo" id="apodo2"><br>
-                <input type="color" id="color2"><br>
-                <img id="foto2" src="" alt="">
-                <button onclick="takePicture()">Sacar foto</button>
+                <input type="color" id="color2"><br><br>
+                <img id="foto2" src="" alt=""><br>
+                <button onclick="takePicture()" class="boton">Sacar foto</button>
                 <h3 class="espacioycentrar2"><a href="#" onclick="javascript:store2_2()" class="boton">Guardar</a></h3>
             </div>
         </div>
-        <h3 class="espacioycentrar2"><a href="home.html" class="boton">Volver a la home</a></h3>
+        
     </main>
 
     <script src="cordova.js"></script>
