@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8">
     <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
-    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta http-equiv="Content-Security-Policy"
+        content="img-src 'self' data:; default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -24,20 +25,24 @@
                 <input type="text" placeholder="Nombre" id="nombre"><br>
                 <input type="text" placeholder="Apodo" id="apodo"><br>
                 <input type="color" id="color"><br><br>
-                <img id="foto" src="" alt=""><br>
-                <button onclick="takePicture()" class="boton">Sacar foto</button>
+                <div class="centrar">
+                    <img id="foto" src="" alt=""><br>
+                    <button onclick="takePicture()" class="boton">Sacar foto</button>
+                </div>
                 <h3 class="espacioycentrar2"><a href="#" onclick="javascript:store1_2()" class="boton">Guardar</a></h3>
             </div>
             <div class="jugadores" id="floatright">
                 <input type="text" placeholder="Nombre" id="nombre2"><br>
                 <input type="text" placeholder="Apodo" id="apodo2"><br>
                 <input type="color" id="color2"><br><br>
-                <img id="foto2" src="" alt=""><br>
-                <button onclick="takePicture()" class="boton">Sacar foto</button>
+                <div class="centrar">
+                    <img id="foto2" src="" alt=""><br>
+                    <button onclick="takePicture()" class="boton">Sacar foto</button>
+                </div>
                 <h3 class="espacioycentrar2"><a href="#" onclick="javascript:store2_2()" class="boton">Guardar</a></h3>
             </div>
         </div>
-        
+
     </main>
 
     <script src="cordova.js"></script>

@@ -55,7 +55,6 @@ main{
 	background-color: #979797;
 	border-radius: 8px;
 	padding: 0.3em;
-	display: inline-block;
 	margin-left: 0.5em;
 	float:left;
 	text-align: center;
@@ -131,6 +130,7 @@ td{
 	margin: 2em;
 	font-size: 2em;
 	font-weight: bold;
+	color: white;
 }
 
 .disabled{
@@ -149,3 +149,48 @@ td{
 	border-radius: 15%;
 	text-align: center;
 }
+
+
+
+
+img{
+	max-width: 100%;
+}
+
+#floatleft{
+float: left;
+}
+
+#floatright{
+float: right;
+}
+
+@media screen and (orientation: portrait){
+	
+	#contenedorDados{
+		display: block;
+		float: none;
+		margin: unset;
+	}
+	
+	#contenedorDados div{
+		width: unset;
+	}
+
+    main{
+        width: 90%;
+    }
+
+    img{
+        height: 4em;
+    }
+
+    td{
+        padding: 0.4em 1em;
+	}
+	
+	#centrar{
+		margin-left: 2em;
+	}
+}
+

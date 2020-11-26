@@ -62,7 +62,7 @@ body{
     width: 5.5rem;
     height: 5.5rem;
     background-color: black;
-	border: solid red 3px;
+	border: solid  #EC1D1D 3px;
 	font-size: 5em;
 	vertical-align: text-top;
 	color: white;
@@ -82,13 +82,26 @@ body{
 #textocartel{
 	font-size: 3em;
 	margin: 2em;
-	color: black;
+	color: white;
 }
-
 
 #turno{
 	text-align: center;
     font-weight: bold;
 	font-size: 1.5em;
 	margin: 0.5em 0 0.5em 0;
+}
+
+@media screen and (orientation: portrait){
+.casillero{
+	width: 6rem;
+    height: 6rem;
+}
+
+#tablero {
+    max-width: none;
+	min-width: none;
+	width: 80%;
+}
+
 }

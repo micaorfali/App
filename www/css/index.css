@@ -246,35 +246,41 @@ table {
         display: inline-flex;
     }
 
-    #jugadoresypuntos{
-        margin: 0 0 0 1.5em;
-        font-weight: 500;
-    }
- 
-    #jugadoresypuntos h2{
-        display: inline-block;
-        margin: 0 0 0.5em 0;
-        background-color: rgba(255, 255, 255, 0.4);
-    }
-
     .jugadores{
         display: inline-block;
         width: 45%;
     }
 
-#floatleft{
-float: left;
+#jugadoresypuntos{
+	margin: 0 0 0 1.5em;
+	font-weight: 500;
 }
 
-#floatright{
-float: right;
+#jugadoresypuntos h2{
+	display: inline-block;
+	margin: 0 0 0.5em 0;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.centrar{
+    text-align: center;
 }
 
 @media screen and (orientation: portrait){
+	.contenedorjuego{
+        display: block;
+        width: 100%;
+        margin: 1em 1em 1em 0;
+		padding: 1em 0 1.5em 0;
+		
+    }
+    img{
+        height: 8em;
+    }
+    #juegos{
+        display: block;
+    }
 
-}
+ 
 
-@media screen and (orientation: landscape){
-   
-    
 }

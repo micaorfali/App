@@ -5,7 +5,8 @@
   <title>Generala</title>
   <meta charset="utf-8" />
   <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
-  <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:;default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+  <meta http-equiv="Content-Security-Policy"
+    content="img-src 'self' data:;default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -16,15 +17,17 @@
 
 <body onload="dadosReset(), nombresTabla()">
   <main>
-   
+
     <div id="estadodeljuego"> Jugador: <span id="turno"></span>, tiro: <span id="tiro"></span></div>
-    
-    <div id="contenedorDados"></div>
+    <div id="centrar">
+      <div id="contenedorDados"></div>
+    </div>
     <div id="botonTirarDados">
+
       <a href="javascript:tirarDados();">Tirar Dados</a>
     </div>
   </main>
- 
+
   <aside>
     <table id="tabla">
       <thead>
@@ -98,7 +101,9 @@
       </tbody>
     </table>
   </aside>
-  <div id="cartelganador"><h2 id="mostrarganador"></h2></div>
+  <div id="cartelganador">
+    <h2 id="mostrarganador"></h2>
+  </div>
   <div id="reiniciar">
     <a href="index.html"> Volver a jugar</a>
     <a href="../home.html"> Home</a>
