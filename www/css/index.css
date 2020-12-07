@@ -122,6 +122,10 @@ table {
         font-size: 1.5em;
         display: inline-block;
     }
+
+    #botonhomeedit{
+        margin: 1.5em 0 1em 1em;
+    }
     
     .subtitulo{
         margin: 0.5em 0 0.5em 1.5em;
@@ -190,6 +194,13 @@ table {
         color: black;
     }
  
+    #home{
+        width: 1.75em;
+    }
+
+    #botonhome2{
+        margin-right: 0;
+    }
 
     .block{
         text-align: center;

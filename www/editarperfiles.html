@@ -18,8 +18,12 @@
 
 <body onload="cargarUsuarios()">
     <main>
-        <h1>Podes editar los perfiles</h1>
-        <h3 class="botonfloatright"><a href="home.html" class="boton2">Volver a la home</a></h3>
+        <h3 class="botonfloatright" id="botonhome">
+            <a href="home.html" class="boton2" id="botonhome2">
+                <img id="home" src="img/home.png">
+            </a>
+        </h3>
+        <h1 id="botonhomeedit">Podes editar los perfiles</h1>
         <div class="espacioycentrar3">
             <div class="jugadores" id="floatleft">
                 <div class="editarperfilesdiv">
@@ -33,7 +37,7 @@
                     </div>
                 </div>
                 <div class="acomodarboton">
-                    <h3 class="espacioycentrar2 boton"><a href="#" onclick="javascript:store1_2()">Guardar</a></h3>
+                    <h3 class="espacioycentrar2 boton" onclick="javascript:store1_2()"><a href="#" onclick="javascript:store1_2()">Guardar</a></h3>
                 </div>
             </div>
             <div class="jugadores" id="floatright">
@@ -48,7 +52,7 @@
                     </div>
                 </div>
                 <div class="acomodarboton">
-                    <h3 class="espacioycentrar2 boton"><a href="#" onclick="javascript:store2_2()">Guardar</a></h3>
+                    <h3 class="espacioycentrar2 boton" onclick="javascript:store2_2()"><a href="#" onclick="javascript:store2_2()">Guardar</a></h3>
                 </div>
             </div>
         </div>
