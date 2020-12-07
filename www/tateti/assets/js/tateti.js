@@ -62,6 +62,7 @@ function dibujarTablero() {
                             document.getElementById("turno").innerHTML = "Ganó " + Storage.get("apodo2");
                             Storage.put("puntos2", (Storage.get("puntos2") + 200));
                             document.getElementById("mostrar").style.display = "inline-flex";
+                            document.getElementById("tablero").classList.remove("marginbottom");
                             puedejugar = 1;
                             break;
                         }
@@ -90,6 +91,7 @@ function dibujarTablero() {
                             document.getElementById("turno").innerHTML = "Ganó " + Storage.get("apodo");
                             Storage.put("puntos1", (Storage.get("puntos1") + 200));
                             document.getElementById("mostrar").style.display = "inline-flex";
+                            document.getElementById("tablero").classList.remove("marginbottom");
                             puedejugar = 1;
                             break;
                         }
@@ -104,6 +106,7 @@ function dibujarTablero() {
                 document.getElementById("turno").innerHTML = "Empate!"
                 //document.getElementById("textocartel").innerHTML = "Empate.";
                 document.getElementById("mostrar").style.display = "inline-flex";
+                document.getElementById("tablero").classList.remove("marginbottom");
                 puedejugar = 1;
             }
         }

@@ -79,7 +79,7 @@ body{
 }
 
 .cartel{
-	height: 300px;
+	height: 64px;
 	color: black;
 	font-size: 3em;
 }
@@ -104,6 +104,10 @@ body{
     height: 6rem;
 }
 
+.marginbottom{
+	margin-bottom: 4em!important;
+}
+
 #tablero {
     max-width: none;
 	min-width: none;
@@ -115,6 +119,7 @@ html{
     display: flex;
     height: 100vh;
 }
+
 #boton{
 	text-align: center;
 }
