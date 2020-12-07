@@ -6,24 +6,30 @@
     <head>
         <title>Ta Te Ti</title>
         <meta charset="utf-8" />
-         <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
-  <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
-  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-  <meta name="color-scheme" content="light dark">
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
+        <meta http-equiv="Content-Security-Policy"
+            content="img-src 'self' data:; default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="../css/index.css">
     </head>
 
 <body onload="dibujarTablero()">
     <div id="turno"></div>
-    <div id="tablero"></div>
+    <div>
+        <div id="tablero"></div>
+    </div>
     <div id="cartel">
-        <h3 id="textocartel"></h3>
         <div class="nodisp" id="mostrar">
-            <a class="boton" href="index.html">Volver a jugar</a>
-            <a id="home" class="boton" href="../home.html">Home</a>
+            <h3 class="boton" id="boton">
+                <a href="index.html">Volver a jugar</a>
+            </h3>
+            <h3 class="boton" id="boton">
+                <a id="home" href="../home.html">Home</a>
+            </h3>
         </div>
     </div>
     <script src="assets/js/tateti.js"></script>

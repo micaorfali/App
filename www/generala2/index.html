@@ -22,9 +22,10 @@
     <div id="centrar">
       <div id="contenedorDados"></div>
     </div>
-    <div id="botonTirarDados">
-
-      <a href="javascript:tirarDados();">Tirar Dados</a>
+    <div id="centrarboton">
+      <h3 id="botonTirarDados" onclick="tirarDados()">
+        <a href="javascript:tirarDados();">Tirar Dados</a>
+      </h3>
     </div>
   </main>
 
@@ -102,11 +103,17 @@
     </table>
   </aside>
   <div id="cartelganador">
-    <h2 id="mostrarganador"></h2>
+    <h2 id="mostrarganador"></h2><br>
+    <p id="puntostotales1"></p><br>
+    <p id="puntostotales2"></p><br>
   </div>
   <div id="reiniciar">
+    <h3 class="boton" onclick="location.href='index.html'">
     <a href="index.html"> Volver a jugar</a>
+  </h3>
+  <h3 class="boton" onclick="location.href='../home.html'">
     <a href="../home.html"> Home</a>
+  </h3>
   </div>
 
   <script src="assets/js/generala.js"></script>

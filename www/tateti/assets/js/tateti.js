@@ -14,16 +14,17 @@ let combiancionesganadoras = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+let puedejugar = 0;
 
 function dibujarTablero() {
     quienempieza = (Math.floor(Math.random() * 2));
     console.log(quienempieza);
     if (quienempieza === 0) {
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo");
         document.getElementById("turno").style.color = Storage.get("color");
+        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo");        
     } else {
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo2");
         document.getElementById("turno").style.color = Storage.get("color2");
+        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo2");        
     }
     for (i = 0; i < 9; i++) {
         let casillero = document.createElement("div");
@@ -33,15 +34,16 @@ function dibujarTablero() {
         tablero.appendChild(casillero);
         casillero.onclick = evt => {
             console.log(quienempieza);
-            if (casillero.getAttribute("data-jugador-index") == null) {
+            if (casillero.getAttribute("data-jugador-index") == null && puedejugar === 0){
                 //1 jugador cruz, 0 jugador circulo
                 if (quienempieza == 1) {
                     casillero.setAttribute("data-jugador-index", 1);
                     casillero.innerHTML = "X";
                     //casillero.appendChild(cruzocirculo);
                     valores_tablero[evt.target.getAttribute("data-casillero-index")] = 1;
-                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo");
                     document.getElementById("turno").style.color = Storage.get("color");
+                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo");
+                    
                     quienempieza = 0;
                     for (j = 0; j < 8; j++) {
                         let combinacionesseleccionadas = combiancionesganadoras[j];
@@ -54,18 +56,19 @@ function dibujarTablero() {
                         }
                         if (a === b && b === c) {
                             console.log("ganador");
-                            tablero.setAttribute("class", "nodisp");
-                            document.getElementById("turno").setAttribute("class", "nodisp");
-                            document.getElementById("textocartel").innerHTML = "Ganó " + Storage.get("apodo2");
+                            //tablero.setAttribute("class", "nodisp");
+                            //document.getElementById("turno").setAttribute("class", "nodisp");
+                            document.getElementById("turno").style.color = Storage.get("color2");
+                            document.getElementById("turno").innerHTML = "Ganó " + Storage.get("apodo2");
                             Storage.put("puntos2", (Storage.get("puntos2") + 200));
-                            document.getElementById("mostrar").style.display = "block";
-
+                            document.getElementById("mostrar").style.display = "inline-flex";
+                            puedejugar = 1;
                             break;
                         }
                     }
                 } else {
-                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo2");
                     document.getElementById("turno").style.color = Storage.get("color2");
+                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo2");
                     casillero.setAttribute("data-jugador-index", 0);
                     casillero.innerHTML = "O";
                     //casillero.appendChild(cruzocirculo);
@@ -81,11 +84,13 @@ function dibujarTablero() {
                         }
                         if (a === b && b === c) {
                             console.log("ganador");
-                            tablero.setAttribute("class", "nodisp");
-                            document.getElementById("turno").setAttribute("class", "nodisp");
-                            document.getElementById("textocartel").innerHTML = "Ganó " + Storage.get("apodo");
+                            //tablero.setAttribute("class", "nodisp");
+                            //document.getElementById("turno").setAttribute("class", "nodisp");
+                            document.getElementById("turno").style.color = Storage.get("color");
+                            document.getElementById("turno").innerHTML = "Ganó " + Storage.get("apodo");
                             Storage.put("puntos1", (Storage.get("puntos1") + 200));
-                            document.getElementById("mostrar").style.display = "block";
+                            document.getElementById("mostrar").style.display = "inline-flex";
+                            puedejugar = 1;
                             break;
                         }
                     }
@@ -93,10 +98,13 @@ function dibujarTablero() {
             }
             if (!valores_tablero.includes("")) {
                 console.log("empate");
-                tablero.setAttribute("class", "nodisp");
-                document.getElementById("turno").setAttribute("class", "nodisp");
-                document.getElementById("textocartel").innerHTML = "Empate.";
-                document.getElementById("mostrar").style.display = "block";
+                //tablero.setAttribute("class", "nodisp");
+                //document.getElementById("turno").setAttribute("class", "nodisp");
+                document.getElementById("turno").style.color = "white";
+                document.getElementById("turno").innerHTML = "Empate!"
+                //document.getElementById("textocartel").innerHTML = "Empate.";
+                document.getElementById("mostrar").style.display = "inline-flex";
+                puedejugar = 1;
             }
         }
     }

@@ -51,6 +51,10 @@ body{
 	font-size: 16px;
 }
 
+#boton{
+	margin: 0.75rem 0.5rem;
+}
+
 #tablero{
 	max-width: 300px;
 	min-width: 200px;
@@ -59,11 +63,12 @@ body{
 
 .casillero{
     display: inline-block;
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     background-color: black;
 	border: solid  #EC1D1D 3px;
-	font-size: 5em;
+	font-size: 4em;
+	line-height: 4rem;
 	vertical-align: text-top;
 	color: white;
 	text-align: center;
@@ -94,6 +99,7 @@ body{
 
 @media screen and (orientation: portrait){
 .casillero{
+	line-height: 6rem;
 	width: 6rem;
     height: 6rem;
 }
@@ -102,6 +108,15 @@ body{
     max-width: none;
 	min-width: none;
 	width: 80%;
+}
+
+html{
+	align-items: center;
+    display: flex;
+    height: 100vh;
+}
+#boton{
+	text-align: center;
 }
 
 }
