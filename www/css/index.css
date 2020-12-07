@@ -124,7 +124,7 @@ table {
     }
 
     #botonhomeedit{
-        margin: 1.5em 0 1em 1em;
+        margin: 1.5em 0 0 1em;
     }
     
     .subtitulo{
@@ -196,6 +196,10 @@ table {
  
     #home{
         width: 1.75em;
+    }
+
+    #botonhome{
+        margin-bottom: 0;
     }
 
     #botonhome2{
