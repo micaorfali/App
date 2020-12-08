@@ -64,7 +64,6 @@ function store2() {
             Storage.put("color2", color2);*/
             window.location.href = "home.html";
         }
-
     }
 
 function clear() {
@@ -125,7 +124,7 @@ function store2_2() {
             color: document.getElementById("color2").value,
             foto: document.getElementById("foto2").src
         }
-        Storage.put(jugador2);
+        Storage.put("jugador2", jugador2);
 
         /*Storage.put("foto2", foto2);
         Storage.put("nombre2", nombre2);
@@ -141,12 +140,14 @@ function jugadoresypuntos() {
     document.getElementById("p2").style.color = Storage.get("jugador2").color;
 }
 
-function checkLocalStorage() {
-    if (Storage.get("jugador1") == null || Storage.get("jugador2") == null) {
+function checkLocalStorage(){
+    if (Storage.get("jugador1") == null) {
         Storage.kill();
         window.location.href = "index.html";
+        console.log("no hay nada");
     } else if(Storage.get("jugador1") != null && Storage.get("jugador2") != null){
-        window.location.href = "home.html"
+        window.location.href = "home.html";
+        console.log("tenemos jugadores");
     }
 }
 
@@ -154,5 +155,15 @@ function checkLocalStorageHome(){
     if (Storage.get("jugador1") == null || Storage.get("jugador2") == null) {
         Storage.kill();
         window.location.href = "index.html";
+        console.log("no hay nada");
+    }
+}
+
+function checkLocalStorageIndex(){
+    if (Storage.get("jugador1") == null || Storage.get("jugador2") == null) {
+        Storage.kill();
+        console.log("no hay nada");
+    } else if(Storage.get("jugador1") != null){
+        window.location.href = "index2.html";
     }
 }
