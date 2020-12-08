@@ -1,10 +1,9 @@
-// "" es vacio, 1 es jugadorcruz, 0 es jugadorcirculo
-let valores_tablero = ["", "", "", "", "", "", "", "", ""];
-let tablero = document.getElementById("tablero");
-//let JugadorCruz;
-//let JugadorCirculo;
-let quienempieza;
-let combiancionesganadoras = [
+var valores_tablero = ["", "", "", "", "", "", "", "", ""];
+var tablero = document.getElementById("tablero");
+var p1 = Storage.get("jugador1");
+var p2 = Storage.get("jugador2");
+var quienempieza;
+var combiancionesganadoras = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -14,17 +13,17 @@ let combiancionesganadoras = [
     [0, 4, 8],
     [2, 4, 6]
 ];
-let puedejugar = 0;
+var puedejugar = 0;
 
 function dibujarTablero() {
     quienempieza = (Math.floor(Math.random() * 2));
     console.log(quienempieza);
     if (quienempieza === 0) {
-        document.getElementById("turno").style.color = Storage.get("color");
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo");        
+        document.getElementById("turno").style.color = Storage.get("jugador1").color;
+        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;        
     } else {
-        document.getElementById("turno").style.color = Storage.get("color2");
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo2");        
+        document.getElementById("turno").style.color = Storage.get("jugador2").color;
+        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador2").apodo;        
     }
     for (i = 0; i < 9; i++) {
         let casillero = document.createElement("div");
@@ -41,8 +40,8 @@ function dibujarTablero() {
                     casillero.innerHTML = "X";
                     //casillero.appendChild(cruzocirculo);
                     valores_tablero[evt.target.getAttribute("data-casillero-index")] = 1;
-                    document.getElementById("turno").style.color = Storage.get("color");
-                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo");
+                    document.getElementById("turno").style.color = Storage.get("jugador1").color;
+                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;
                     
                     quienempieza = 0;
                     for (j = 0; j < 8; j++) {
@@ -58,9 +57,11 @@ function dibujarTablero() {
                             console.log("ganador");
                             //tablero.setAttribute("class", "nodisp");
                             //document.getElementById("turno").setAttribute("class", "nodisp");
-                            document.getElementById("turno").style.color = Storage.get("color2");
-                            document.getElementById("turno").innerHTML = "Ganó " + Storage.get("apodo2");
-                            Storage.put("puntos2", (Storage.get("puntos2") + 200));
+                            document.getElementById("turno").style.color = Storage.get("jugador2").color;
+                            document.getElementById("turno").innerHTML = "Ganó " + Storage.get("jugador2").apodo;
+                            //Storage.put("puntos2", (Storage.get("puntos2") + 200));
+                            p2.puntos =+ 200;
+                            Storage.put("jugador2", p2);
                             document.getElementById("mostrar").style.display = "inline-flex";
                             document.getElementById("tablero").classList.remove("marginbottom");
                             puedejugar = 1;
@@ -68,8 +69,8 @@ function dibujarTablero() {
                         }
                     }
                 } else {
-                    document.getElementById("turno").style.color = Storage.get("color2");
-                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("apodo2");
+                    document.getElementById("turno").style.color = Storage.get("jugador2").color;
+                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador2").apodo;
                     casillero.setAttribute("data-jugador-index", 0);
                     casillero.innerHTML = "O";
                     //casillero.appendChild(cruzocirculo);
@@ -87,9 +88,11 @@ function dibujarTablero() {
                             console.log("ganador");
                             //tablero.setAttribute("class", "nodisp");
                             //document.getElementById("turno").setAttribute("class", "nodisp");
-                            document.getElementById("turno").style.color = Storage.get("color");
-                            document.getElementById("turno").innerHTML = "Ganó " + Storage.get("apodo");
-                            Storage.put("puntos1", (Storage.get("puntos1") + 200));
+                            document.getElementById("turno").style.color = Storage.get("jugador1").color;
+                            document.getElementById("turno").innerHTML = "Ganó " + Storage.get("jugador1").apodo;
+                            //Storage.put("puntos1", (Storage.get("puntos1") + 200));
+                            p1.puntos =+ 200;
+                            Storage.put("jugador1", p1);
                             document.getElementById("mostrar").style.display = "inline-flex";
                             document.getElementById("tablero").classList.remove("marginbottom");
                             puedejugar = 1;
