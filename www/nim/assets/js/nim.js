@@ -57,15 +57,11 @@ function seleccionado(id) {
 }
 
 function boton() {
-    console.log("boton");
     if (contPalitos > 1 && !arrPalitosSel.includes("1")) {
-        console.log("boton1");
         for (i = 0; i < arrPalitosSel.length; i++) {
-            console.log("boton2");
             if (document.getElementById(arrPalitosSel[i]).src != document.getElementById((parseInt(arrPalitosSel[i])+1).toString()).src && document.getElementById(arrPalitosSel[i]).src != document.getElementById((parseInt(arrPalitosSel[i])-1).toString()).src) {
-                console.log(arrPalitosSel[i]);
-                console.log(arrPalitosSel[i-1]);
-                //alert("Los palitos seleccionados tienen que ser consecutivos");
+                alert("Los palitos seleccionados tienen que ser consecutivos");
+                break;
             }
         }
     }
