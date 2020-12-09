@@ -53,7 +53,7 @@ function boton() {
     if (contPalitos > 1 && !arrPalitosSel.includes("1")) {
         for (i = 0; i < arrPalitosSel.length; i++) {
             if (document.getElementById(arrPalitosSel[i]).src != document.getElementById((parseInt(arrPalitosSel[i])+1).toString()).src && document.getElementById(arrPalitosSel[i]).src != document.getElementById((parseInt(arrPalitosSel[i])-1).toString()).src) {
-                alert("Los palitos seleccionados tienen que ser consecutivos");
+            alert("Los palitos seleccionados tienen que ser consecutivos");
                 break;
             }else if(document.getElementById(arrPalitosSel[i]).src === document.getElementById((parseInt(arrPalitosSel[i])+1).toString()).src || document.getElementById(arrPalitosSel[i]).src === document.getElementById((parseInt(arrPalitosSel[i])-1).toString()).src){
                 cambiarJugadorNim();
@@ -89,14 +89,28 @@ function cambiarJugadorNim(){
     if(arrPalitos.length === 15){
         finalizarJuego();
     }
+    if(arrPalitos.length === 16){
+        finalizarJuegoEmpate();
+    }
 }
 
 function finalizarJuego(){
     if(quienempieza === 0){
         document.getElementById("turno").style.color = Storage.get("jugador2").color;
         document.getElementById("turno").innerHTML = "Ganó: " + Storage.get("jugador2").apodo;
+        let puntos2 = Storage.get("jugador2");
+        puntos2.puntos =+ 300;
+        Storage.put("jugador2", puntos2);
     } else{
         document.getElementById("turno").style.color = Storage.get("jugador1").color;
         document.getElementById("turno").innerHTML = "Ganó: " + Storage.get("jugador1").apodo;
+        let puntos1 = Storage.get("jugador1");
+        puntos1.puntos =+ 300;
+        Storage.put("jugador1", puntos1);
     }
+}
+
+function finalizarJuegoEmpate(){
+    document.getElementById("turno").style.color = "white";
+    document.getElementById("turno").innerHTML = "Empate!";
 }
