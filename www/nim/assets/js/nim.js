@@ -4,13 +4,7 @@ var juego = document.getElementById("filas");
 var arrPalitosSel = [];
 var contPalitos = 0;
 var arrFilas = [];
-var arrPalitos =
-    ["1",
-        "2", "3", "4",
-        "5", "6", "7", "8", "9",
-        "10", "11", "12", "13", "14", "15", "16"];
-
-var arrIdPalitos = [];
+var arrPalitos = [];
 
 function empezarJuego() {
     quienempieza = (Math.floor(Math.random() * 2));
@@ -84,7 +78,25 @@ function cambiarJugadorNim(){
     for(i=0; i<arrPalitosSel.length; i++){
         document.getElementById(arrPalitosSel[i]).src = "assets/img/palito-tachado.png";
     }
+    for(i=0; i<arrPalitosSel.length; i++){
+        arrPalitos.push("1");
+    }
+
     contPalitos = 0;
     arrPalitosSel= [];
     arrFilas = [];
+
+    if(arrPalitos.length === 15){
+        finalizarJuego();
+    }
+}
+
+function finalizarJuego(){
+    if(quienempieza === 0){
+        document.getElementById("turno").style.color = Storage.get("jugador2").color;
+        document.getElementById("turno").innerHTML = "Ganó: " + Storage.get("jugador2").apodo;
+    } else{
+        document.getElementById("turno").style.color = Storage.get("jugador1").color;
+        document.getElementById("turno").innerHTML = "Ganó: " + Storage.get("jugador1").apodo;
+    }
 }
