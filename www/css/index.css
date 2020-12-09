@@ -301,6 +301,24 @@ table {
     text-align: center;
 }
 
+#nim{
+    text-align: center;
+}
+
+#contenedorbotonnim{
+    width: 20%;
+    margin: 0 auto;
+}
+
+.filas{
+   /* height: 3em;
+    width: auto;*/
+}
+
+.filas img{
+    max-width: 100%;
+}
+
 @media screen and (orientation: portrait){
 	.contenedorjuego{
         display: block;
