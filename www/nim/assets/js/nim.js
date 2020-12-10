@@ -1,14 +1,14 @@
 var quienempieza;
 var juego = document.getElementById("filas");
 
-var arrPalitosSel = [];
+//var arrPalitosSel = [];
+var arrPalitosSel = ["0"];
 var contPalitos = 0;
 var arrFilas = [];
 var arrPalitos = [];
 
 function empezarJuego() {
     quienempieza = (Math.floor(Math.random() * 2));
-    console.log(quienempieza);
     if (quienempieza === 0) {
         document.getElementById("turno").style.color = Storage.get("jugador1").color;
         document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;
@@ -19,7 +19,7 @@ function empezarJuego() {
 }
 
 function seleccionado(id) {
-    if (document.getElementById(id).getAttribute("src") != "assets/img/palito-seleccionado.png" && document.getElementById(id).getAttribute("src") != "assets/img/palito-tachado.png") {
+    if (document.getElementById(id).getAttribute("src") != "assets/img/palito-seleccionado.png" && document.getElementById(id).getAttribute("src") != "assets/img/palito-tachado.png" && arrPalitos.length < 15) {
         contPalitos++;
         console.log(document.getElementById(id));
         arrPalitosSel.push(id);
@@ -37,6 +37,7 @@ function seleccionado(id) {
             document.getElementById(id).src = "assets/img/palito-seleccionado.png";
             console.log("se selecciono");
             document.getElementById(id).setAttribute("data-palito-index", contPalitos - 1);
+
         }
     } else if (document.getElementById(id).getAttribute("src") === "assets/img/palito-seleccionado.png") {
         document.getElementById(id).src = "assets/img/palito.png";
@@ -51,21 +52,20 @@ function seleccionado(id) {
 
 function boton() {
     if (contPalitos > 1 && !arrPalitosSel.includes("1")) {
-        for (i = 0; i < arrPalitosSel.length; i++) {
-            if (document.getElementById(arrPalitosSel[i]).src != document.getElementById((parseInt(arrPalitosSel[i])+1).toString()).src && document.getElementById(arrPalitosSel[i]).src != document.getElementById((parseInt(arrPalitosSel[i])-1).toString()).src) {
-            alert("Los palitos seleccionados tienen que ser consecutivos");
-                break;
-            }else if(document.getElementById(arrPalitosSel[i]).src === document.getElementById((parseInt(arrPalitosSel[i])+1).toString()).src || document.getElementById(arrPalitosSel[i]).src === document.getElementById((parseInt(arrPalitosSel[i])-1).toString()).src){
-                cambiarJugadorNim();
-                console.log("cambia jugador");
-            }
-        }
-    }else if(contPalitos === 1){
+        arrPalitosSel.sort(function (a, b) { return a - b });
+        //for (i = 0; i < arrPalitosSel.length; i++) {
+        //if (document.getElementById(arrPalitosSel[i]).src != document.getElementById((parseInt(arrPalitosSel[i]) + 1).toString()).src && document.getElementById(arrPalitosSel[i]).src != document.getElementById((parseInt(arrPalitosSel[i]) - 1).toString()).src) {
+        sonConsecutivos();
+        // }
+    } else if (contPalitos === 1) {
+        contPalitos = 0;
+        arrFilas = [];
         cambiarJugadorNim();
+        arrPalitosSel = ["0"];
     }
 }
 
-function cambiarJugadorNim(){
+function cambiarJugadorNim() {
     if (quienempieza === 0) {
         quienempieza = 1;
         document.getElementById("turno").style.color = Storage.get("jugador2").color;
@@ -75,42 +75,67 @@ function cambiarJugadorNim(){
         document.getElementById("turno").style.color = Storage.get("jugador1").color;
         document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;
     }
-    for(i=0; i<arrPalitosSel.length; i++){
+    for (i = 1; i < arrPalitosSel.length; i++) {
         document.getElementById(arrPalitosSel[i]).src = "assets/img/palito-tachado.png";
     }
-    for(i=0; i<arrPalitosSel.length; i++){
+    for (i = 0; i < arrPalitosSel.length-1; i++) {
         arrPalitos.push("1");
     }
 
-    contPalitos = 0;
-    arrPalitosSel= [];
-    arrFilas = [];
-
-    if(arrPalitos.length === 15){
+    if (arrPalitos.length === 15) {
         finalizarJuego();
     }
-    if(arrPalitos.length === 16){
+    if (arrPalitos.length === 16) {
         finalizarJuegoEmpate();
     }
 }
 
-function finalizarJuego(){
-    if(quienempieza === 0){
+var contarr = 1;
+function sonConsecutivos() {
+
+    for (i = -1; i < arrPalitosSel.length; i++) {
+        if (arrPalitosSel[i] != "0") {
+            if (parseInt(arrPalitosSel[i - 1]) + 1 === parseInt(arrPalitosSel[i])) {
+                console.log(parseInt(arrPalitosSel[i]));
+                console.log(parseInt(arrPalitosSel[i - 1]) + 1);
+                contarr++;
+            }
+        }
+    }
+    if (contarr === arrPalitosSel.length - 1) {
+        console.log(contarr);
+        contarr = 1;
+        console.log("true");
+        contPalitos = 0;
+        arrFilas = [];
+        cambiarJugadorNim();
+        arrPalitosSel = ["0"];
+        return true;
+    } else {
+        console.log(contarr);
+        contarr = 1;
+        console.log("false");
+        return false;
+    }
+
+}
+function finalizarJuego() {
+    if (quienempieza === 0) {
         document.getElementById("turno").style.color = Storage.get("jugador2").color;
         document.getElementById("turno").innerHTML = "Ganó: " + Storage.get("jugador2").apodo;
         let puntos2 = Storage.get("jugador2");
-        puntos2.puntos =+ 300;
+        puntos2.puntos = + 300;
         Storage.put("jugador2", puntos2);
-    } else{
+    } else {
         document.getElementById("turno").style.color = Storage.get("jugador1").color;
         document.getElementById("turno").innerHTML = "Ganó: " + Storage.get("jugador1").apodo;
         let puntos1 = Storage.get("jugador1");
-        puntos1.puntos =+ 300;
+        puntos1.puntos = + 300;
         Storage.put("jugador1", puntos1);
     }
 }
 
-function finalizarJuegoEmpate(){
+function finalizarJuegoEmpate() {
     document.getElementById("turno").style.color = "white";
     document.getElementById("turno").innerHTML = "Empate!";
 }
