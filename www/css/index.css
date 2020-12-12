@@ -303,13 +303,36 @@ table {
 
 #nim{
     text-align: center;
+    display: inline-block;
+    margin: 0.2em 0 0 4em;
+}
+
+#nim img{
+    height: 5rem;
+    width: auto;
 }
 
 #contenedorbotonnim{
-    width: 20%;
-    margin: 0 auto;
+    margin: 1em auto;
+  
+}
+#contenedorbotonnim h3{
+    margin: 0.5em;
 }
 
+#contenedorbotonesnim{
+    text-align: center;
+    float: right;
+    margin: 5em 9em 0 0;
+}
+
+#turnonim{
+    font-size: 1.5em;
+}
+
+.nodisp{
+	display: none;
+}
 
 .filas img{
     max-width: 100%;
@@ -357,5 +380,33 @@ table {
 
     .inputs{
         width: 100%;
+    }
+
+    #contenedorbotonesnim{
+        margin: 1em auto;
+        float: unset;
+    }
+    #contenedorbotonnim{
+        width: 50%;
+    }
+
+    #nim{
+        margin: 0 auto;
+        display: block;
+    }
+
+    #bodynim{
+        height: 100vh;
+        align-items: center;
+        display: flex;
+    }
+
+    #contenedornim{
+        display: block;
+        margin: 0 auto;
+    }
+
+    .listo{
+        margin: 1em auto 6.5em auto!important;
     }
 }

@@ -10,11 +10,11 @@ var arrPalitos = [];
 function empezarJuego() {
     quienempieza = (Math.floor(Math.random() * 2));
     if (quienempieza === 0) {
-        document.getElementById("turno").style.color = Storage.get("jugador1").color;
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;
+        document.getElementById("turnonim").style.color = Storage.get("jugador1").color;
+        document.getElementById("turnonim").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;
     } else {
-        document.getElementById("turno").style.color = Storage.get("jugador2").color;
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador2").apodo;
+        document.getElementById("turnonim").style.color = Storage.get("jugador2").color;
+        document.getElementById("turnonim").innerHTML = "Turno de: " + Storage.get("jugador2").apodo;
     }
 }
 
@@ -68,12 +68,12 @@ function boton() {
 function cambiarJugadorNim() {
     if (quienempieza === 0) {
         quienempieza = 1;
-        document.getElementById("turno").style.color = Storage.get("jugador2").color;
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador2").apodo;
+        document.getElementById("turnonim").style.color = Storage.get("jugador2").color;
+        document.getElementById("turnonim").innerHTML = "Turno de: " + Storage.get("jugador2").apodo;
     } else {
         quienempieza = 0;
-        document.getElementById("turno").style.color = Storage.get("jugador1").color;
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;
+        document.getElementById("turnonim").style.color = Storage.get("jugador1").color;
+        document.getElementById("turnonim").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;
     }
     for (i = 1; i < arrPalitosSel.length; i++) {
         document.getElementById(arrPalitosSel[i]).src = "assets/img/palito-tachado.png";
@@ -120,15 +120,18 @@ function sonConsecutivos() {
 
 }
 function finalizarJuego() {
+    document.getElementById("mostrar").style.display = "inline-block";
+    document.getElementById("ocultar").style.display = "none";
+    document.getElementsByClassName("listo").style.margin = "1em auto!important";
     if (quienempieza === 0) {
-        document.getElementById("turno").style.color = Storage.get("jugador2").color;
-        document.getElementById("turno").innerHTML = "Ganó: " + Storage.get("jugador2").apodo;
+        document.getElementById("turnonim").style.color = Storage.get("jugador2").color;
+        document.getElementById("turnonim").innerHTML = "Ganó: " + Storage.get("jugador2").apodo;
         let puntos2 = Storage.get("jugador2");
         puntos2.puntos = + 300;
         Storage.put("jugador2", puntos2);
     } else {
-        document.getElementById("turno").style.color = Storage.get("jugador1").color;
-        document.getElementById("turno").innerHTML = "Ganó: " + Storage.get("jugador1").apodo;
+        document.getElementById("turnonim").style.color = Storage.get("jugador1").color;
+        document.getElementById("turnonim").innerHTML = "Ganó: " + Storage.get("jugador1").apodo;
         let puntos1 = Storage.get("jugador1");
         puntos1.puntos = + 300;
         Storage.put("jugador1", puntos1);
@@ -136,6 +139,9 @@ function finalizarJuego() {
 }
 
 function finalizarJuegoEmpate() {
-    document.getElementById("turno").style.color = "white";
-    document.getElementById("turno").innerHTML = "Empate!";
+    document.getElementById("mostrar").style.display = "inline-block";
+    document.getElementById("ocultar").style.display = "none";
+    document.getElementsByClassName("listo").style.margin = "1em auto!important";
+    document.getElementById("turnonim").style.color = "white";
+    document.getElementById("turnonim").innerHTML = "Empate!";
 }

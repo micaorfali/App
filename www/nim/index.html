@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+
     <head>
         <title>Nim</title>
         <meta charset="utf-8" />
@@ -17,39 +18,54 @@
         <script src="../js/storage.js"></script>
     </head>
 
-<body id="nim" onload="empezarJuego()">
-    <div id="turno"></div>
-    <div id="fila1" class="filas">
-        <img id="1" data-fila-index="1" src="assets/img/palito.png" onclick="seleccionado('1')">
-    </div>
-    <div id="fila2" class="filas">
-        <img id="2" data-fila-index="2" src="assets/img/palito.png" onclick="seleccionado('2')">
-        <img id="3" data-fila-index="2" src="assets/img/palito.png" onclick="seleccionado('3')">
-        <img id="4" data-fila-index="2" src="assets/img/palito.png" onclick="seleccionado('4')">
-    </div>
-    <div id="fila3" class="filas">
-        <img id="5" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('5')">
-        <img id="6" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('6')">
-        <img id="7" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('7')">
-        <img id="8" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('8')">
-        <img id="9" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('9')">
-    </div>
-    <div id="fila4" class="filas">
-        <img id="10" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('10')">
-        <img id="11" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('11')">
-        <img id="12" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('12')">
-        <img id="13" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('13')">
-        <img id="14" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('14')">
-        <img id="15" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('15')">
-        <img id="16" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('16')">
-    </div>
-<div id="contenedorbotonnim" onclick="boton()">
-    <h3 class="boton"><a>Listo!</a></h3>
-</div>
+<body onload="empezarJuego()" id="bodynim">
+    <div id="contenedornim">
+        <main id="nim">
+            <div id="fila1" class="filas">
+                <img id="1" data-fila-index="1" src="assets/img/palito.png" onclick="seleccionado('1')">
+            </div>
+            <div id="fila2" class="filas">
+                <img id="2" data-fila-index="2" src="assets/img/palito.png" onclick="seleccionado('2')">
+                <img id="3" data-fila-index="2" src="assets/img/palito.png" onclick="seleccionado('3')">
+                <img id="4" data-fila-index="2" src="assets/img/palito.png" onclick="seleccionado('4')">
+            </div>
+            <div id="fila3" class="filas">
+                <img id="5" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('5')">
+                <img id="6" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('6')">
+                <img id="7" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('7')">
+                <img id="8" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('8')">
+                <img id="9" data-fila-index="3" src="assets/img/palito.png" onclick="seleccionado('9')">
+            </div>
+            <div id="fila4" class="filas">
+                <img id="10" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('10')">
+                <img id="11" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('11')">
+                <img id="12" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('12')">
+                <img id="13" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('13')">
+                <img id="14" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('14')">
+                <img id="15" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('15')">
+                <img id="16" data-fila-index="4" src="assets/img/palito.png" onclick="seleccionado('16')">
+            </div>
+        </main>
+        <div id="contenedorbotonesnim" class="listo">
+            <div id="turnonim"></div>
+            <div id="contenedorbotonnim" onclick="boton()">
+                <h3 id="ocultar" class="boton"><a>Listo!</a></h3>
+                <div class="nodisp" id="mostrar">
+                    <h3 class="boton" id="boton">
+                        <a href="index.html">Volver a jugar</a>
+                    </h3>
+                    <h3 class="boton" id="boton">
+                        <a id="home" href="../home.html">Home</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
 
-    <script src="assets/js/nim.js"></script>
-    <script src="../js/functions.js"></script>
-    <script src="../js/storage.js"></script>
+        <script src="assets/js/nim.js"></script>
+        <script src="../js/functions.js"></script>
+        <script src="../js/storage.js"></script>
+
+    </div>
 </body>
 
 </html>
