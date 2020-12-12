@@ -34,9 +34,35 @@ function takePicture() {
     navigator.camera.getPicture(onSuccess, onFail, cameraOps);
 }
 
+function takePicture2() {
+    let cameraOps = {
+        quality: 25,
+        destinationType: Camera.DestinationType.DATA_URL
+    }
+    navigator.camera.getPicture(onSuccess2, onFail, cameraOps);
+}
+
 function onSuccess(imgData) {
     document.getElementById("foto").src = "data:image/jpeg;base64," + imgData;
 }
+
+function onSuccess2(imgData) {
+    document.getElementById("foto2").src = "data:image/jpeg;base64," + imgData;
+}
+
+//editar perfiles
+function takePicture2edit() {
+    let cameraOps = {
+        quality: 25,
+        destinationType: Camera.DestinationType.DATA_URL
+    }
+    navigator.camera.getPicture(onSuccess2edit, onFail, cameraOps);
+}
+
+function onSuccess2edit(imgData) {
+    document.getElementById("foto2edit").src = "data:image/jpeg;base64," + imgData;
+}
+
 
 function onFail(message) {
     alert('Failed because: ' + message);

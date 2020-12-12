@@ -17,7 +17,7 @@
 
 <body onload="checkLocalStorageIndex()">
     <main>
-            <h1>Te damos la bienvenida!</h1>
+            <h1 id="bienvenida">Te damos la bienvenida!</h1>
             <h3 class="subtitulo">Creá tu perfil</h3>
             <div class="inlineflex">
             <div class="inputs">
@@ -27,10 +27,11 @@
             </div>
         <div class="block porc30">
             <img class="block marginbottom" id="foto" alt="" src="">
-            <button class="boton block" onclick="takePicture()">Sacar foto</button>
+            <img class="block marginbottom" id="foto2" alt="" src="">
+            <button id="sacarfoto" class="boton block" onclick="takePicture()">Sacar foto</button>
         </div>
     </div>
-        <h3 class="espacioycentrar"><a onclick="javascript:store1()" class="boton2">Crear</a></h3>
+        <h3 class="espacioycentrar"><a href="javascript:store1()" class="boton2">Crear</a></h3>
     </main>
 
     <script src="cordova.js"></script>

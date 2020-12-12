@@ -257,6 +257,11 @@ table {
     .marginbottom{
         margin-bottom: 1em;
     }
+
+    #foto2{
+        display: none;
+    }
+
     .espacioycentrar2{
         margin: 2em 0 0 0;
         text-align: center;
