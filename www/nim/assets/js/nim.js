@@ -1,7 +1,6 @@
 var quienempieza;
 var juego = document.getElementById("filas");
 
-//var arrPalitosSel = [];
 var arrPalitosSel = ["0"];
 var contPalitos = 0;
 var arrFilas = [];
@@ -122,18 +121,21 @@ function sonConsecutivos() {
 function finalizarJuego() {
     document.getElementById("mostrar").style.display = "inline-block";
     document.getElementById("ocultar").style.display = "none";
-    document.getElementsByClassName("listo").style.margin = "1em auto!important";
+    document.getElementById("botonnim1").setAttribute("class", "boton");
+    document.getElementById("botonnim2").setAttribute("class", "boton");
+    document.getElementById("contenedornim").setAttribute("class", "contenedornim");
+
     if (quienempieza === 0) {
         document.getElementById("turnonim").style.color = Storage.get("jugador2").color;
         document.getElementById("turnonim").innerHTML = "Ganó: " + Storage.get("jugador2").apodo;
         let puntos2 = Storage.get("jugador2");
-        puntos2.puntos = + 300;
+        puntos2.puntos = puntos2.puntos+ 300;
         Storage.put("jugador2", puntos2);
     } else {
         document.getElementById("turnonim").style.color = Storage.get("jugador1").color;
         document.getElementById("turnonim").innerHTML = "Ganó: " + Storage.get("jugador1").apodo;
         let puntos1 = Storage.get("jugador1");
-        puntos1.puntos = + 300;
+        puntos1.puntos = puntos1.puntos + 300;
         Storage.put("jugador1", puntos1);
     }
 }
@@ -141,7 +143,6 @@ function finalizarJuego() {
 function finalizarJuegoEmpate() {
     document.getElementById("mostrar").style.display = "inline-block";
     document.getElementById("ocultar").style.display = "none";
-    document.getElementsByClassName("listo").style.margin = "1em auto!important";
     document.getElementById("turnonim").style.color = "white";
     document.getElementById("turnonim").innerHTML = "Empate!";
 }

@@ -15,10 +15,10 @@ function tirarDado() {
 }
 
 function nombresTabla() {
-    document.getElementById("jugador1").innerHTML = Storage.get("jugador1").apodo;
-    document.getElementById("jugador2").innerHTML = Storage.get("jugador2").apodo;
-    document.getElementById("jugador1").style.color = Storage.get("jugador1").color;
-    document.getElementById("jugador2").style.color = Storage.get("jugador2").color;
+    document.getElementById("jugador1").innerHTML = p1.apodo;
+    document.getElementById("jugador2").innerHTML = p2.apodo;
+    document.getElementById("jugador1").style.color = p1.color;
+    document.getElementById("jugador2").style.color = p2.color;
 }
 
 function tirarDados() {
@@ -55,11 +55,11 @@ function actualizarPantalla() {
             contenedorDados.appendChild(dibujarDado(i, estadoDelJuego.dados[i], true));
         }
         if (estadoDelJuego.jugador === 1) {
-            document.getElementById("turno").innerHTML = Storage.get("jugador1").apodo;
-            document.getElementById("turno").style.color = Storage.get("jugador1").color;
+            document.getElementById("turno").innerHTML = p1.apodo;
+            document.getElementById("turno").style.color = p1.color;
         } else {
-            document.getElementById("turno").innerHTML = Storage.get("jugador2").apodo;
-            document.getElementById("turno").style.color = Storage.get("jugador2").color;
+            document.getElementById("turno").innerHTML = p2.apodo;
+            document.getElementById("turno").style.color = p2.color;
         }
         document.getElementById("tiro").innerHTML = estadoDelJuego.contTiros;
         document.querySelectorAll("#puntajes td").forEach(celda => celda.classList.remove("jugando"));
@@ -140,7 +140,7 @@ function anotarPuntos(juego) {
                     if (estadoDelJuego.contTiros === 1) {
                         if (estadoDelJuego.jugador === 0) {
                             document.getElementById("mostrarganador").style.display = "inline-block";
-                            document.getElementById("mostrarganador").innerHTML = "Ganó: " + Storage.get("jugador2").apodo;
+                            document.getElementById("mostrarganador").innerHTML = "Ganó: " + p2.apodo;
                             //Storage.put("puntos2", (Storage.get("puntos2") + 400));
                             p2.puntos =+ 400;
                             Storage.put("jugador2", p2);
@@ -150,7 +150,7 @@ function anotarPuntos(juego) {
                             document.getElementById("tabla").style.display = "none";
                         } else if (estadoDelJuego.jugador === 1) {
                             document.getElementById("mostrarganador").style.display = "inline-block";
-                            document.getElementById("mostrarganador").innerHTML = "Ganó: " + Storage.get("jugador1").apodo;
+                            document.getElementById("mostrarganador").innerHTML = "Ganó: " + p1.apodo;
                             p2.puntos =+ 400;
                             Storage.put("jugador2", p2);
                             //Storage.put("puntos1", (Storage.get("puntos1") + 400));
@@ -229,13 +229,15 @@ function quienGano() {
 
     if (totalp1 < totalp2) {
         document.getElementById("mostrarganador").style.display = "inline-block";
-        document.getElementById("mostrarganador").innerHTML = "Ganó: " + Storage.get("jugador2").apodo;
+        document.getElementById("mostrarganador").innerHTML = "Ganó: " + p2.apodo;
         document.getElementById("puntostotales2").style.display = "inline-block";
-        document.getElementById("puntostotales2").style.color = Storage.get("jugador2").color;
-        document.getElementById("puntostotales2").innerHTML = Storage.get("jugador2").apodo + " => " + totalp2 + " puntos";
+        document.getElementById("puntostotales2").style.color = p2.color;
+        document.getElementById("puntostotales2").innerHTML = p2.apodo + " => " + totalp2 + " puntos";
+        document.getElementById("puntostotales2").style.backgroundColor = "rgba(221, 212, 212, 0.8)";
         document.getElementById("puntostotales1").style.display = "inline-block";
-        document.getElementById("puntostotales1").style.color = Storage.get("jugador1").color;
-        document.getElementById("puntostotales1").innerHTML = Storage.get("jugador1").apodo + " => " + totalp1 + " puntos";
+        document.getElementById("puntostotales1").style.color = p1.color;
+        document.getElementById("puntostotales1").innerHTML = p1.apodo + " => " + totalp1 + " puntos";
+        document.getElementById("puntostotales1").style.backgroundColor = "rgba(221, 212, 212, 0.8)";
         //Storage.put("puntos2", (Storage.get("puntos2") + 400));
         p2.puntos =+ 400;
         Storage.put("jugador2", p2);
@@ -245,13 +247,15 @@ function quienGano() {
         document.getElementById("tabla").style.display = "none";
     } else if (totalp2 < totalp1) {
         document.getElementById("mostrarganador").style.display = "inline-block";
-        document.getElementById("mostrarganador").innerHTML = "Ganó: " + Storage.get("jugador1").apodo;
+        document.getElementById("mostrarganador").innerHTML = "Ganó: " + p1.apodo;
         document.getElementById("puntostotales1").style.display = "inline-block";
-        document.getElementById("puntostotales1").style.color = Storage.get("jugador1").color;
-        document.getElementById("puntostotales1").innerHTML = Storage.get("jugador1").apodo + " => " + totalp1 + " puntos";
+        document.getElementById("puntostotales1").style.color = p1.color;
+        document.getElementById("puntostotales1").innerHTML = p1.apodo + " => " + totalp1 + " puntos";
+        document.getElementById("puntostotales1").style.backgroundColor = "rgba(221, 212, 212, 0.8)";
+        document.getElementById("puntostotales2").style.backgroundColor = "rgba(221, 212, 212, 0.8)";
         document.getElementById("puntostotales2").style.display = "inline-block";
-        document.getElementById("puntostotales2").style.color = Storage.get("jugador2").color;
-        document.getElementById("puntostotales2").innerHTML = Storage.get("jugador2").apodo + " => " + totalp2 + " puntos";
+        document.getElementById("puntostotales2").style.color = p2.color;
+        document.getElementById("puntostotales2").innerHTML = p2.apodo + " => " + totalp2 + " puntos";
         //Storage.put("puntos1", (Storage.get("puntos1") + 400));
         p1.puntos =+ 400;
         Storage.put("jugador1", p1);
@@ -263,11 +267,14 @@ function quienGano() {
         document.getElementById("mostrarganador").style.display = "inline-block";
         document.getElementById("mostrarganador").innerHTML = "Empate!";
         document.getElementById("puntostotales1").style.display = "inline-block";
-        document.getElementById("puntostotales1").style.color = Storage.get("jugador1").color;
-        document.getElementById("puntostotales1").innerHTML = Storage.get("jugador1").apodo + " => " + totalp1 + " puntos";
+        document.getElementById("puntostotales1").style.color = p1.color;
+        document.getElementById("puntostotales1").innerHTML = p1.apodo + " => " + totalp1 + " puntos";
         document.getElementById("puntostotales1").style.display = "inline-block";
-        document.getElementById("puntostotales2").style.color = Storage.get("jugador2").color;
-        document.getElementById("puntostotales1").innerHTML = Storage.get("jugador2").apodo + " => " + totalp2 + " puntos";
+        document.getElementById("puntostotales2").style.display = "inline-block";
+        document.getElementById("puntostotales2").style.color = p2.color;
+        document.getElementById("puntostotales2").innerHTML = p2.apodo + " => " + totalp2 + " puntos";
+        document.getElementById("puntostotales2").style.backgroundColor = "rgba(221, 212, 212, 0.8)";
+        document.getElementById("puntostotales1").style.backgroundColor = "rgba(221, 212, 212, 0.8)";
         document.getElementById("botonTirarDados").style.display = "none";
         document.getElementById("estadodeljuego").style.display = "none";
         document.getElementById("contenedorDados").style.display = "none";
@@ -282,6 +289,8 @@ function cambiarJugador() {
     estadoDelJuego.dadosSeleccionados = [];
     estadoDelJuego.jugador = estadoDelJuego.jugador === 2 ? 1 : 2;
     estadoDelJuego.jugadas++;
+    document.getElementById("turno").innerHTML = "";
+    document.getElementById("tiro").innerHTML = "";
     actualizarPantalla();
     if (estadoDelJuego.jugadas === 11 * estadoDelJuego.puntajes.length) {
         juegoTerminado();

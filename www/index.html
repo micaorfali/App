@@ -16,22 +16,26 @@
 </head>
 
 <body onload="checkLocalStorageIndex()">
-    <main>
-            <h1 id="bienvenida">Te damos la bienvenida!</h1>
-            <h3 class="subtitulo">Creá tu perfil</h3>
-            <div class="inlineflex">
+    <main class="centrarportrait">
+        <h1 id="bienvenida">Te damos la bienvenida!</h1>
+        <h3 class="subtitulo subtituloportrait">Creá tu perfil</h3>
+        <div class="inlineflex centrarportrait">
             <div class="inputs">
                 <input type="text" placeholder="Nombre" id="txtNombre"><br>
                 <input type="text" placeholder="Apodo" id="txtApodo"><br>
                 <input type="color" id="color"><br>
             </div>
-        <div class="block porc30">
-            <img class="block marginbottom" id="foto" alt="" src="">
-            <img class="block marginbottom" id="foto2" alt="" src="">
-            <button id="sacarfoto" class="boton block" onclick="takePicture()">Sacar foto</button>
+            <div class="block porc30">
+                <div id="fotos">
+                    <img class="block marginbottom" id="foto" alt="" src="">
+                    <img class="block marginbottom" id="foto2" alt="" src="">
+                </div>
+                <button id="sacarfoto" class="boton block" onclick="takePicture()">Sacar foto</button>
+            </div>
         </div>
-    </div>
-        <h3 class="espacioycentrar"><a href="javascript:store1()" class="boton2">Crear</a></h3>
+        <div id="posabs">
+            <h3 id="crear" class="espacioycentrar"><a href="javascript:store1()" class="boton2">Crear</a></h3>
+        </div>
     </main>
 
     <script src="cordova.js"></script>

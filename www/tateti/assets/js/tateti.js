@@ -20,10 +20,10 @@ function dibujarTablero() {
     console.log(quienempieza);
     if (quienempieza === 0) {
         document.getElementById("turno").style.color = Storage.get("jugador1").color;
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;        
+        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo + " (O)";        
     } else {
         document.getElementById("turno").style.color = Storage.get("jugador2").color;
-        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador2").apodo;        
+        document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador2").apodo + " (X)";        
     }
     for (i = 0; i < 9; i++) {
         let casillero = document.createElement("div");
@@ -41,7 +41,7 @@ function dibujarTablero() {
                     //casillero.appendChild(cruzocirculo);
                     valores_tablero[evt.target.getAttribute("data-casillero-index")] = 1;
                     document.getElementById("turno").style.color = Storage.get("jugador1").color;
-                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo;
+                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador1").apodo + " (O)";
                     
                     quienempieza = 0;
                     for (j = 0; j < 8; j++) {
@@ -58,9 +58,9 @@ function dibujarTablero() {
                             //tablero.setAttribute("class", "nodisp");
                             //document.getElementById("turno").setAttribute("class", "nodisp");
                             document.getElementById("turno").style.color = Storage.get("jugador2").color;
-                            document.getElementById("turno").innerHTML = "Ganó " + Storage.get("jugador2").apodo;
+                            document.getElementById("turno").innerHTML = "Ganó " + Storage.get("jugador2").apodo + " (X)";
                             //Storage.put("puntos2", (Storage.get("puntos2") + 200));
-                            p2.puntos =+ 200;
+                            p2.puntos = p2.puntos + 200;
                             Storage.put("jugador2", p2);
                             document.getElementById("mostrar").style.display = "inline-flex";
                             document.getElementById("tablero").classList.remove("marginbottom");
@@ -70,7 +70,7 @@ function dibujarTablero() {
                     }
                 } else {
                     document.getElementById("turno").style.color = Storage.get("jugador2").color;
-                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador2").apodo;
+                    document.getElementById("turno").innerHTML = "Turno de: " + Storage.get("jugador2").apodo + " (X)";
                     casillero.setAttribute("data-jugador-index", 0);
                     casillero.innerHTML = "O";
                     //casillero.appendChild(cruzocirculo);
@@ -91,7 +91,7 @@ function dibujarTablero() {
                             document.getElementById("turno").style.color = Storage.get("jugador1").color;
                             document.getElementById("turno").innerHTML = "Ganó " + Storage.get("jugador1").apodo;
                             //Storage.put("puntos1", (Storage.get("puntos1") + 200));
-                            p1.puntos =+ 200;
+                            p1.puntos = p1.puntos + 200;
                             Storage.put("jugador1", p1);
                             document.getElementById("mostrar").style.display = "inline-flex";
                             document.getElementById("tablero").classList.remove("marginbottom");

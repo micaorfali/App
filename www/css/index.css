@@ -128,7 +128,7 @@ table {
     }
     
     .subtitulo{
-        margin: 0.5em 0 0.5em 1.5em;
+        margin-left: 1.5em;
     }
 
     .juego{
@@ -192,6 +192,10 @@ table {
         border-radius: 8px;
         font-weight: 500;
         color: black;
+    }
+
+    #editarperfiles{
+        margin-right: unset;
     }
  
     #home{
@@ -262,6 +266,10 @@ table {
         display: none;
     }
 
+    #fotos{
+        width: 200px;
+    }
+
     .espacioycentrar2{
         margin: 2em 0 0 0;
         text-align: center;
@@ -298,8 +306,8 @@ table {
     background-color: rgba(221, 212, 212, 0.8);
 }
 
-#p1 #p2{
-    padding: 0.2em;
+#p1, #p2{
+    padding: 0.2em 0.5em;
 }
 
 .centrar{
@@ -379,8 +387,8 @@ table {
     }
 
     .porc30{
-        margin-left: 2em;
         margin: 0 auto;
+        width: 100%;
     }
 
     .inputs{
@@ -393,6 +401,22 @@ table {
     }
     #contenedorbotonnim{
         width: 50%;
+    }
+
+    .botonnim{
+        margin: 0.5em 0.5em 6.5em 0.5em!important;
+    }
+
+    #botonnim1{
+        margin: 0.5em;
+    }
+
+    #botonnim2{
+        margin: 0.5em;
+    }
+
+    .contenedornim{
+        margin-top: 4em!important;
     }
 
     #nim{
@@ -414,4 +438,39 @@ table {
     .listo{
         margin: 1em auto 6.5em auto!important;
     }
+
+    #fotos{
+        width: 300px;
+        text-align: center;
+        margin: 1em auto 0 auto;
+    }
+
+    #fotos img{
+        margin: 0 auto;
+    }
+
+    #sacarfoto{
+        margin: 1em auto;
+    }
+
+    #crear{
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        margin-bottom: 1em;
+    }
+
+    #posabs{
+        position: absolute;
+    }
+
+    .centrarportrait{
+        text-align: center;
+    }
+
+    .subtituloportrait{
+        float: left;
+        margin-left: 2.2em;
+    }
+
 }
