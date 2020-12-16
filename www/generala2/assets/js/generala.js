@@ -34,8 +34,6 @@ function tirarDados() {
     if (estadoDelJuego.contTiros === 3) {
         forzarAnotarPuntos();
     }
-    console.log(localStorage);
-    console.log(estadoDelJuego);
 }
 
 function forzarAnotarPuntos() {
@@ -69,49 +67,6 @@ function actualizarPantalla() {
     }
 }
 
-/*
-function resaltarJuegosPosibles(resaltar) {
-    if (!resaltar) {
-        document.querySelectorAll("#puntajes tr td:nth-of-type(1)").forEach(td => td.classList.remove("puntaje"));
-    } else {
-        let selector;
-        if (dados.includes(1)) {
-            selector = "#puntajes tr:nth-of-type(1) td:nth-of-type(1)";
-        }
-        if (dados.includes(2)) {
-            selector = "#puntajes tr:nth-of-type(2) td:nth-of-type(1)";
-        }
-        if (dados.includes(3)) {
-            selector = "#puntajes tr:nth-of-type(3) td:nth-of-type(1)";
-        }
-        if (dados.includes(4)) {
-            selector = "#puntajes tr:nth-of-type(4) td:nth-of-type(1)";
-        }
-        if (dados.includes(5)) {
-            selector = "#puntajes tr:nth-of-type(5) td:nth-of-type(1)";
-        }
-        if (dados.includes(6)) {
-            selector = "#puntajes tr:nth-of-type(6) td:nth-of-type(1)";
-        }
-        if (esEscalera()) {
-            selector = "#puntajes tr:nth-of-type(7) td:nth-of-type(1)";
-        }
-        if (esFull()) {
-            selector = "#puntajes tr:nth-of-type(8) td:nth-of-type(1)";
-        }
-        if (esPoker()) {
-            selector = "#puntajes tr:nth-of-type(9) td:nth-of-type(1)";
-        }
-        if (esGenerala()) {
-            selector = "#puntajes tr:nth-of-type(10) td:nth-of-type(1)";
-        }
-        if (selector) {
-            document.querySelector(selector).classList.add("puntaje");
-        }
-    }
-}
-*/
-
 function anotarPuntos(juego) {
     let celda = document.querySelector("#puntajes tr:nth-of-type(" + (juego + 1) + ") td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")");
     if (!celda.classList.contains("anotado")) {
@@ -141,7 +96,6 @@ function anotarPuntos(juego) {
                         if (estadoDelJuego.jugador === 0) {
                             document.getElementById("mostrarganador").style.display = "inline-block";
                             document.getElementById("mostrarganador").innerHTML = "Ganó: " + p2.apodo;
-                            //Storage.put("puntos2", (Storage.get("puntos2") + 400));
                             p2.puntos =+ 400;
                             Storage.put("jugador2", p2);
                             document.getElementById("botonTirarDados").style.display = "none";
@@ -153,7 +107,6 @@ function anotarPuntos(juego) {
                             document.getElementById("mostrarganador").innerHTML = "Ganó: " + p1.apodo;
                             p2.puntos =+ 400;
                             Storage.put("jugador2", p2);
-                            //Storage.put("puntos1", (Storage.get("puntos1") + 400));
                             document.getElementById("botonTirarDados").style.display = "none";
                             document.getElementById("estadodeljuego").style.display = "none";
                             document.getElementById("contenedorDados").style.display = "none";
@@ -238,7 +191,6 @@ function quienGano() {
         document.getElementById("puntostotales1").style.color = p1.color;
         document.getElementById("puntostotales1").innerHTML = p1.apodo + " => " + totalp1 + " puntos";
         document.getElementById("puntostotales1").style.backgroundColor = "rgba(221, 212, 212, 0.8)";
-        //Storage.put("puntos2", (Storage.get("puntos2") + 400));
         p2.puntos =+ 400;
         Storage.put("jugador2", p2);
         document.getElementById("botonTirarDados").style.display = "none";
@@ -256,7 +208,6 @@ function quienGano() {
         document.getElementById("puntostotales2").style.display = "inline-block";
         document.getElementById("puntostotales2").style.color = p2.color;
         document.getElementById("puntostotales2").innerHTML = p2.apodo + " => " + totalp2 + " puntos";
-        //Storage.put("puntos1", (Storage.get("puntos1") + 400));
         p1.puntos =+ 400;
         Storage.put("jugador1", p1);
         document.getElementById("botonTirarDados").style.display = "none";
