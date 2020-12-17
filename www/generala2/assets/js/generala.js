@@ -96,16 +96,16 @@ function anotarPuntos(juego) {
                         if (estadoDelJuego.jugador === 0) {
                             document.getElementById("mostrarganador").style.display = "inline-block";
                             document.getElementById("mostrarganador").innerHTML = "Ganó: " + p2.apodo;
-                            p2.puntos = p2.puntos+ 400;
+                            p2.puntos = p2.puntos + 400;
                             Storage.put("jugador2", p2);
                             document.getElementById("botonTirarDados").style.display = "none";
                             document.getElementById("estadodeljuego").style.display = "none";
                             document.getElementById("contenedorDados").style.display = "none";
                             document.getElementById("tabla").style.display = "none";
-                        } else if (estadoDelJuego.jugador === 1) {
+                        } else {
                             document.getElementById("mostrarganador").style.display = "inline-block";
                             document.getElementById("mostrarganador").innerHTML = "Ganó: " + p1.apodo;
-                            p1.puntos = p1.puntos+ 400;
+                            p1.puntos = p1.puntos + 400;
                             Storage.put("jugador1", p1);
                             document.getElementById("botonTirarDados").style.display = "none";
                             document.getElementById("estadodeljuego").style.display = "none";
@@ -127,15 +127,15 @@ function anotarPuntos(juego) {
                 }
                 break;
             case 10:
-                if (esGenerala() && document.querySelector("#puntajes tr:nth-of-type(10) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML > 0 && document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "") {
-                    estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = puntosJuegoEspecial(100);
-                    break;
-                } else if (document.querySelector("#puntajes tr:nth-of-type(10) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "X" && document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "") {
+                if (!esGenerala()) {
                     estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = 0;
-                    break;
-                } else if (document.querySelector("#puntajes tr:nth-of-type(10) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "" && document.querySelector("#puntajes tr:nth-of-type(11) td:nth-of-type(" + (estadoDelJuego.jugador + 1) + ")").innerHTML === "") {
-                    estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = 0;
-                    break;
+                } else {
+                    if (estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9] > 0) {
+                        estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = puntosJuegoEspecial(100);
+                    } else {
+                        estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9] = puntosJuegoEspecial(50);
+                        generalaForzadaPorDoble = true;
+                    }
                 }
                 break;
         }
@@ -191,7 +191,7 @@ function quienGano() {
         document.getElementById("puntostotales1").style.color = p1.color;
         document.getElementById("puntostotales1").innerHTML = p1.apodo + " => " + totalp1 + " puntos";
         document.getElementById("puntostotales1").style.backgroundColor = "rgba(221, 212, 212, 0.8)";
-        p2.puntos =+ 400;
+        p2.puntos = p2.puntos + 400;
         Storage.put("jugador2", p2);
         document.getElementById("botonTirarDados").style.display = "none";
         document.getElementById("estadodeljuego").style.display = "none";
@@ -208,7 +208,7 @@ function quienGano() {
         document.getElementById("puntostotales2").style.display = "inline-block";
         document.getElementById("puntostotales2").style.color = p2.color;
         document.getElementById("puntostotales2").innerHTML = p2.apodo + " => " + totalp2 + " puntos";
-        p1.puntos =+ 400;
+        p1.puntos = p1.puntos + 400;
         Storage.put("jugador1", p1);
         document.getElementById("botonTirarDados").style.display = "none";
         document.getElementById("estadodeljuego").style.display = "none";
@@ -304,7 +304,8 @@ function esFull() {
 }
 
 function esPoker() {
-    return (/1{4}(2|3|4|5|6)|2{4}(1|3|4|5|6)|3{4}(1|2|4|5|6)|4{4}(1|2|3|5|6)|5{4}(1|2|3|4|6)|6{4}(1|2|3|4|5)/).test(dadosComoString());
+    return (/1{4}|2{4}|3{4}|4{4}|5{4}|6{4}/).test(dadosComoString());
+    //return (/1{4}(2|3|4|5|6)|2{4}(1|3|4|5|6)|3{4}(1|2|4|5|6)|4{4}(1|2|3|5|6)|5{4}(1|2|3|4|6)|6{4}(1|2|3|4|5)/).test(dadosComoString());
 }
 
 function esGenerala() {
