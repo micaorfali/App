@@ -130,11 +130,35 @@ function anotarPuntos(juego) {
                 if (!esGenerala()) {
                     estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = 0;
                 } else {
-                    if (estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9] > 0) {
-                        estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = puntosJuegoEspecial(100);
+                    if (estadoDelJuego.contTiros === 1) {
+                        if (estadoDelJuego.jugador === 0) {
+                            document.getElementById("mostrarganador").style.display = "inline-block";
+                            document.getElementById("mostrarganador").innerHTML = "Ganó: " + p2.apodo;
+                            p2.puntos = p2.puntos + 400;
+                            Storage.put("jugador2", p2);
+                            document.getElementById("botonTirarDados").style.display = "none";
+                            document.getElementById("estadodeljuego").style.display = "none";
+                            document.getElementById("contenedorDados").style.display = "none";
+                            document.getElementById("tabla").style.display = "none";
+                        } else {
+                            document.getElementById("mostrarganador").style.display = "inline-block";
+                            document.getElementById("mostrarganador").innerHTML = "Ganó: " + p1.apodo;
+                            p1.puntos = p1.puntos + 400;
+                            Storage.put("jugador1", p1);
+                            document.getElementById("botonTirarDados").style.display = "none";
+                            document.getElementById("estadodeljuego").style.display = "none";
+                            document.getElementById("contenedorDados").style.display = "none";
+                            document.getElementById("tabla").style.display = "none";
+                        }
+                        estadoDelJuego.puntajes[(estadoDelJuego.jugador - 1)][juego] = 400;
+                        juegoTerminado();
                     } else {
-                        estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9] = puntosJuegoEspecial(50);
-                        generalaForzadaPorDoble = true;
+                        if (estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9] > 0) {
+                            estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = puntosJuegoEspecial(100);
+                        } else {
+                            estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][9] = puntosJuegoEspecial(50);
+                            generalaForzadaPorDoble = true;
+                        }
                     }
                 }
                 break;
