@@ -21,9 +21,9 @@
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
 
+
 function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    
 }
 
 function takePicture() {
@@ -62,7 +62,6 @@ function takePicture2edit() {
 function onSuccess2edit(imgData) {
     document.getElementById("foto2edit").src = "data:image/jpeg;base64," + imgData;
 }
-
 
 function onFail(message) {
     alert('Failed because: ' + message);

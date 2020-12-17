@@ -96,7 +96,7 @@ function anotarPuntos(juego) {
                         if (estadoDelJuego.jugador === 0) {
                             document.getElementById("mostrarganador").style.display = "inline-block";
                             document.getElementById("mostrarganador").innerHTML = "Ganó: " + p2.apodo;
-                            p2.puntos =+ 400;
+                            p2.puntos = p2.puntos+ 400;
                             Storage.put("jugador2", p2);
                             document.getElementById("botonTirarDados").style.display = "none";
                             document.getElementById("estadodeljuego").style.display = "none";
@@ -105,14 +105,14 @@ function anotarPuntos(juego) {
                         } else if (estadoDelJuego.jugador === 1) {
                             document.getElementById("mostrarganador").style.display = "inline-block";
                             document.getElementById("mostrarganador").innerHTML = "Ganó: " + p1.apodo;
-                            p2.puntos =+ 400;
-                            Storage.put("jugador2", p2);
+                            p1.puntos = p1.puntos+ 400;
+                            Storage.put("jugador1", p1);
                             document.getElementById("botonTirarDados").style.display = "none";
                             document.getElementById("estadodeljuego").style.display = "none";
                             document.getElementById("contenedorDados").style.display = "none";
                             document.getElementById("tabla").style.display = "none";
                         }
-                        estadoDelJuego.puntajes[(estadoDelJuego.jugador - 1)][juego] = 1000;
+                        estadoDelJuego.puntajes[(estadoDelJuego.jugador - 1)][juego] = 400;
                         juegoTerminado();
                     } else {
                         estadoDelJuego.puntajes[estadoDelJuego.jugador - 1][juego] = puntosJuegoEspecial(50);
